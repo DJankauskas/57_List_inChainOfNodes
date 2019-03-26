@@ -67,7 +67,7 @@ public class List_inChainOfNodes{
      public Object get(int index) {
        Node iterator = headReference;
        while (index != 0) {
-         iterator = headReference.getReferenceToNextNode();
+         iterator = iterator.getReferenceToNextNode();
          index--;
        }
        return iterator.getCargo();
@@ -79,7 +79,7 @@ public class List_inChainOfNodes{
        }
        Node iterator = headReference;
        while (index > 1) {
-         iterator = headReference.getReferenceToNextNode();
+         iterator = iterator.getReferenceToNextNode();
          index--;
        }
        Node newNode = new Node(val, iterator.getReferenceToNextNode());
@@ -96,7 +96,7 @@ public class List_inChainOfNodes{
        }
        Node iterator = headReference;
        while (index > 1) {
-         iterator = headReference.getReferenceToNextNode();
+         iterator = iterator.getReferenceToNextNode();
          index--;
        }
        returnValue = iterator.getReferenceToNextNode().getCargo();
