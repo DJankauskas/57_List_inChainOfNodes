@@ -23,12 +23,6 @@ public class List_inChainOfNodes{
       return size;
     }
 
-    public int size_recursive() {
-      if(headReference != null) {
-        return headReference.size_recursive();
-      }
-      else return 0;
-    }
 
     
      /**
@@ -57,5 +51,56 @@ public class List_inChainOfNodes{
         Node head = new Node(val, headReference);
         headReference = head;
         return true;
+     }
+
+     public Object set(int index, Object val) {
+       Node iterator = headReference;
+       while (index != 0) {
+         iterator = headReference.getReferenceToNextNode();
+         index--;
+       }
+       Object returnValue = iterator.getCargo();
+       iterator.setCargo(val);
+       return returnValue;
+     }
+
+     public Object get(int index) {
+       Node iterator = headReference;
+       while (index != 0) {
+         iterator = headReference.getReferenceToNextNode();
+         index--;
+       }
+       return iterator.getCargo();
+     }
+
+     public boolean add(int index, Object val) {
+       if (index == 0) {
+         return addAsHead(val);
+       }
+       Node iterator = headReference;
+       while (index > 1) {
+         iterator = headReference.getReferenceToNextNode();
+         index--;
+       }
+       Node newNode = new Node(val, iterator.getReferenceToNextNode());
+       iterator.setReferenceToNextNode(newNode);
+       return true;
+     }
+
+     public Object remove(int index) {
+       Object returnValue;
+       if (index == 0) {
+         returnValue = headReference.getCargo();
+         headReference = headReference.getReferenceToNextNode();
+         return returnValue;
+       }
+       Node iterator = headReference;
+       while (index > 1) {
+         iterator = headReference.getReferenceToNextNode();
+         index--;
+       }
+       returnValue = iterator.getReferenceToNextNode().getCargo();
+       iterator.setReferenceToNextNode(iterator.getReferenceToNextNode().getReferenceToNextNode());
+       return returnValue;
      }
 }

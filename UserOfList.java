@@ -5,7 +5,7 @@ public class UserOfList {
     private int elemIndex;
 
     public static void main(String[] args) {
-        List_inArraySlots list = new List_inArraySlots();
+        List_inChainOfNodes list = new List_inChainOfNodes();
 
         System.out.println("number of elements: " + list.size());
         System.out.println("empty list: " + list);
@@ -15,7 +15,7 @@ public class UserOfList {
          */
         int elemIndex;
         for (elemIndex = 0; elemIndex < 5; elemIndex++) {
-            list.add(-elemIndex); // differs from index, but similar
+            list.add(elemIndex, -elemIndex); // differs from index, but similar
             System.out.println("number of elements: " + list.size());
         }
         System.out.println("initial population of " + list.size() + " elements:");
@@ -26,7 +26,7 @@ public class UserOfList {
 
             if (elemIndex == 10) System.out.println("expansion expected");
 
-            list.add(-elemIndex);
+            list.add(elemIndex, -elemIndex);
             System.out.println("number of elements: " + list.size());
         }
         System.out.println("result of second population: " + list.size() + " elements:");
@@ -34,7 +34,7 @@ public class UserOfList {
 
         // Trust no one.
         for (; elemIndex < 35; elemIndex++)
-            list.add(-elemIndex);
+            list.add(elemIndex, -elemIndex);
         System.out.println("after second expansion: " + list.size() + " elements:");
         System.out.println(list + System.lineSeparator());
 
@@ -79,7 +79,7 @@ public class UserOfList {
      * Test the set() method, reporting and
      * changing the value at index @modifyAt.
      */
-    private static void setTest(int modifyAt, List_inArraySlots list) {
+    private static void setTest(int modifyAt, List_inChainOfNodes list) {
         System.out.println(
                 "changed element " + modifyAt + " from "
                         + list.set(modifyAt, modifyAt + 1000) + " to "
@@ -90,7 +90,7 @@ public class UserOfList {
     /**
      * Test the 2-argument add( index, value) method.
      */
-    private static void addAtTest(int addAt, int value, List_inArraySlots list) {
+    private static void addAtTest(int addAt, int value, List_inChainOfNodes list) {
         list.add(addAt, value);
         System.out.println(
                 "insert " + value

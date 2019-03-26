@@ -50,10 +50,7 @@ public class Node {
       return cargoReference;
     }
 
-    public int size_recursive() {
-      if(referenceToNextNode != null) {
-        return 1 + referenceToNextNode.size();
-      }
-      else return 1;
+    public void setCargo(Object cargo) {
+      cargoReference = cargo;
     }
 }
