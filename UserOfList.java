@@ -55,6 +55,8 @@ public class UserOfList {
 
         // test adding at a specified position
         addAtTest(0, 29, list); // beginning of the list
+        //test beginning of list
+        setTest(0, list);
 
         // end of the list using the new add method
         addAtTest(list.size(), 17, list);
@@ -66,13 +68,15 @@ public class UserOfList {
         addAtTest(2, 23, list);
         addAtTest(2, 23, list);
 
+        setTest(40, list);
+
         // test removing an element
         System.out.println("removing value " + list.remove(6)
                 + ", leaving " + list.size() + " elements:");
         System.out.println(list);
         System.out.println(
                 "expecting:" + System.lineSeparator()
-                        + "[29,0,23,23,23,19, NO -1 HERE! -2,-3...]");
+                        + "[1000,0,23,23,23,19, NO -1 HERE! -2,-3...]");
     }
 
     /**
